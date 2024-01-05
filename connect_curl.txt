@@ -1,0 +1,16 @@
+curl -X PUT http://localhost:8083/connectors/pizzas-on-ice/config \
+     -i -H "Content-Type: application/json" -d '{
+    "connector.class": "io.tabular.iceberg.connect.IcebergSinkConnector",
+    "tasks.max": "6",
+    "topics": "completed-pizzas",
+    "iceberg.tables": "rpc.pizzas",
+    "iceberg.catalog": "demo",
+    "iceberg.catalog.type": "rest",
+    "iceberg.catalog.uri": "http://iceberg-rest:8181",
+    "iceberg.catalog.client.region": "us-east-1",
+    "iceberg.tables.auto-create-enabled": "true",
+    "iceberg.tables.evolve-schema-enabled": "true",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false" 
+}'
