@@ -3,13 +3,12 @@ import uuid
 import json
 
 from confluent_kafka import Producer
-from config import props
 from datetime import datetime
 
 pizza_topic = 'completed-pizzas'
 
 def gen_orders():
-    pizza_producer = Producer(props)
+    pizza_producer = Producer("bootstrap.servers": "localhost:29092")
     while True:
         i = random.randint(1, 5)
         pizza_order = random_pizzas(i)
