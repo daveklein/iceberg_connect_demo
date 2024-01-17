@@ -59,7 +59,7 @@ services:
     - bash
     - -c
     - "echo \"Installing connector plugins\"\nmkdir -p /usr/share/confluent-hub-components/\nconfluent-hub
-      install --no-prompt --component-dir /usr/share/confluent-hub-components/ tabular/iceberg-kafka-connect:0.5.9\n#\necho
+      install --no-prompt --component-dir /usr/share/confluent-hub-components/ tabular/iceberg-kafka-connect:0.6.5\n#\necho
       \"Launching Kafka Connect worker\"\n/etc/confluent/docker/run & \n#\nsleep infinity\n"
 
   spark-iceberg:
