@@ -8,7 +8,7 @@ from datetime import datetime
 pizza_topic = 'completed-pizzas'
 
 def gen_orders():
-    pizza_producer = Producer("bootstrap.servers": "localhost:29092")
+    pizza_producer = Producer({"bootstrap.servers": "localhost:29092"})
     while True:
         i = random.randint(1, 5)
         pizza_order = random_pizzas(i)

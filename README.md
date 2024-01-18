@@ -1,4 +1,4 @@
-# iceberg_connect_demo
+# Iceberg Kafka Connect Demo
 
 This demonstration will send data into an Apache Kafka topic which will be picked up by the Iceberg Connector for Kafka Connect and written to an Iceberg table.
 
@@ -27,7 +27,7 @@ This demonstration will send data into an Apache Kafka topic which will be picke
 5. Install `confluent-kafka` package
 
     `pip install confluent-kafka`
-6. Run pizza loader script
+6. In a seperate terminal window, run the pizza loader script
 
     `python pizza_loader.py`
 7. Launch PySpark
@@ -36,6 +36,13 @@ This demonstration will send data into an Apache Kafka topic which will be picke
 8. Explore Iceberg table
 
     `df = spark.table("demo.rpc.pizzas")`
+
     `df.count()`
+
     `df.show(5)`
+
     `df.groupBy("store_id").count().sort("count", ascending=False).show(5)`
+
+9. Clean up resources when you're done.
+
+    `docker compose down`
